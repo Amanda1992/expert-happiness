@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# Amanda Anderon
+
+# June 1, 2017
+
+# amanda.anderson@codeimmersive.com
+
+PATH=/bin
+export PATH
+
+NAME=""
+echo "What is your name?   \c"
+read NAME 
+  
+
+
+# get current hour (24 clock format i.e. 0-23)
+
+HOUR=`date +"%H"`
+ 
+# if it is midnight to midafternoon will say G'morning
+
+if [ $HOUR -ge 0 -a $HOUR -le 11 ]
+then
+   echo "Good Morning, $NAME"
+   exit 0
+
+# if it is midafternoon to evening ( before 6 pm) will say G'noon
+
+elif [ $HOUR -ge 12 -a $HOUR -le 17 ] 
+then
+  echo "Good Afternoon, $NAME"
+  exit 0
+
+# if it is good evening till 9pm
+
+elif [ $HOUR -ge 18 -a $HOUR -le 20 ]
+then
+  echo "Good evening, $NAME"
+  exit 0
+# if it is after 9pm till midnight
+
+else 
+  echo "Good night, $NAME"
+  exit 0
+fi
+ 
+# display greet
+
+echo $GREETING
